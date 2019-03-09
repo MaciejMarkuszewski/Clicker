@@ -12,9 +12,9 @@
 
 using namespace std;
 Gracz G;
-ranking R;
+Ranking R;
 
-bool Uzytkownik::zaloz_konto(string l,string n, string h,Gracz *G,ranking *R)
+bool Uzytkownik::zaloz_konto(string l,string n, string h,Gracz *G,Ranking *R)
 {
 	this->login = l;
 	this->haslo = h;
@@ -66,7 +66,7 @@ bool Uzytkownik::zaloz_konto(string l,string n, string h,Gracz *G,ranking *R)
 		return false;
 	}
 }
-int Uzytkownik::zweryfikuj_login(string l, string h,Gracz *G,ranking *R)
+int Uzytkownik::zweryfikuj_login(string l, string h,Gracz *G,Ranking *R)
 {
 	Baza_danych_uzytkownika B;
 	login = l;
@@ -138,7 +138,7 @@ Gracz::Gracz() {
 
 }
 
-Gracz::Gracz(int id,ranking *R) 
+Gracz::Gracz(int id,Ranking *R) 
 {
 	for (int i = 0; i < R->liczba_graczy; i++)
 	{
@@ -157,7 +157,7 @@ void Gracz::dodaj_punkt()
 	punkty++;
 }
 
-void Gracz::zapisz_dane(ranking *R)
+void Gracz::zapisz_dane(Ranking *R)
 {
 	for (int i = 0; i < R->liczba_graczy; i++) 
 	{
@@ -237,7 +237,7 @@ Baza_danych_uzytkownika::Baza_danych_uzytkownika()
 	pin.close();
 }
 
-ranking::ranking()
+Ranking::Ranking()
 {
 	liczba_graczy = 0;
 	ifstream rin;

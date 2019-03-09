@@ -4,7 +4,7 @@
 #include "Clicker.h"
 #include "Ranking.h"
 extern Gracz G;
-extern ranking R;
+extern Ranking R;
 
 namespace Clicker {
 

@@ -8,7 +8,7 @@
 using namespace std;
 
 class Baza_danych_uzytkownika;
-class ranking;
+class Ranking;
 class Gracz;
 extern Gracz G;
 extern int ID;
@@ -20,8 +20,8 @@ class Uzytkownik
 	string status_logowania;
 
 public:
-	bool zaloz_konto(string, string, string,Gracz*,ranking*);
-	int zweryfikuj_login(string, string,Gracz*,ranking*);
+	bool zaloz_konto(string, string, string,Gracz*,Ranking*);
+	int zweryfikuj_login(string, string,Gracz*,Ranking*);
 };
 
 class Informacje_gracza
@@ -36,16 +36,16 @@ public:
 	Informacje_gracza(string);
 	Informacje_gracza(string, int);
 	void wypisz();
-	friend bool Uzytkownik::zaloz_konto(string, string, string,Gracz*,ranking*);
+	friend bool Uzytkownik::zaloz_konto(string, string, string,Gracz*,Ranking*);
 };
 
 class Gracz: public Informacje_gracza
 {
 public:
 	Gracz();
-	Gracz(int,ranking*);
+	Gracz(int,Ranking*);
 	void dodaj_punkt();
-	void zapisz_dane(ranking*);
+	void zapisz_dane(Ranking*);
 	void wypisz();
 	void usun_gracza();
 };
@@ -56,12 +56,12 @@ class Administrator: public Gracz
 	void zmien_liczbe_punktow_gracza();
 };
 
-class ranking
+class Ranking
 {
 public:
 	int liczba_graczy;
 	vector <Informacje_gracza> dane ;
-	ranking();
+	Ranking();
 	void wypisz();
 };
 
@@ -73,8 +73,8 @@ protected:
 	string haslo;
 	time_t data_rejestracji;
 public:
-	friend bool Uzytkownik::zaloz_konto(string, string,string,Gracz*,ranking*);
-	friend int Uzytkownik::zweryfikuj_login(string, string,Gracz*,ranking*);
+	friend bool Uzytkownik::zaloz_konto(string, string,string,Gracz*,Ranking*);
+	friend int Uzytkownik::zweryfikuj_login(string, string,Gracz*,Ranking*);
 	Dane_logowania_uzytkownika();
 	Dane_logowania_uzytkownika(string);
 };

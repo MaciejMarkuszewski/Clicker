@@ -2,7 +2,7 @@
 #include <msclr/marshal_cppstd.h>
 #include "Clicker.h"
 #include "Rozgrywka.h"
-extern ranking R;
+extern Ranking R;
 extern Gracz G;
 
 namespace Clicker {
